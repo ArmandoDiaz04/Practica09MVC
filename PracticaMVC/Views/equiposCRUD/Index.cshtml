@@ -1,0 +1,80 @@
+﻿@model PracticaMVC.Models.equipos
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Mantenimiento de Equipos";
+}
+
+<div class="row">
+    <form asp-action="Create">
+        <div class="col-md-8">
+            <input type="hidden" asp-for="id_equipos"/>
+            <div class="form-group">
+                <label asp-for="nombre" class="control-label">Equipo</label>
+                <input asp-for="nombre" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="descripcion" class="control-label">Descripción</label>
+                <input asp-for="descripcion" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="modelo" class="control-label">Modelo</label>
+                <input asp-for="modelo" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="anio_compra" class="control-label">Año de Compra</label>
+                <input asp-for="anio_compra" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="costo" class="control-label">Costo</label>
+                <input asp-for="costo" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="vida_util" class="control-label">Vidat Util (Años)</label>
+                <input asp-for="vida_util" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="tipo_equipo_id" class="control-label">Tipo Equipo</label>
+                <input asp-for="tipo_equipo_id" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="marca_id" class="control-label">Marca</label>
+                <input asp-for="marca_id" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="estado_equipo_id" class="control-label">Estado Equipo</label>
+                <input asp-for="estado_equipo_id" class="form-control" />
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <input type="submit" value="Guardar" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Equipo</th>
+                    <th>Descripción</th>
+                    <th>Modelo</th>
+                    <th>Costo</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewData["equipoList"] as List<equipos>)
+                {
+                    <tr>
+                        <td>@item.nombre</td>
+                        <td>@item.descripcion</td>
+                        <td>@item.modelo</td>
+                        <td>@item.costo</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
